@@ -8,6 +8,7 @@ import { provideEffects } from '@ngrx/effects';
 import {
   getAllVideosEffect,
   getVideoByIdEffect,
+  updateVideoEffect,
 } from './state/video/video.effects';
 import { provideHttpClient } from '@angular/common/http';
 
@@ -16,7 +17,11 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore(appReducers),
-    provideEffects({ getAllVideosEffect, getVideoByIdEffect }),
+    provideEffects({
+      getAllVideosEffect,
+      getVideoByIdEffect,
+      updateVideoEffect,
+    }),
     provideHttpClient(),
   ],
 };

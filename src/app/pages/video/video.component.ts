@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getVideoById } from '../../state/video/video.actions';
+import { getVideoById, updateVideoData } from '../../state/video/video.actions';
 import { videoSelectors } from '../../state/video/video.selectors';
 import { AsyncPipe } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-video',
@@ -16,10 +17,12 @@ import { AsyncPipe } from '@angular/common';
 export class VideoComponent {
   private store = inject(Store);
 
+  count = 0;
   title = 'Título do vídeo';
   description = 'Descrição do vídeo';
   id: string | null = null;
   video = this.store.select(videoSelectors.video);
+  private videoSubscription!: Subscription;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -30,5 +33,33 @@ export class VideoComponent {
         this.store.dispatch(getVideoById({ id: this.id }));
       }
     });
+
+    this.videoSubscription = this.video.subscribe((video) => {
+      if (video) {
+        this.updateVideoData(video);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.videoSubscription) {
+      this.videoSubscription.unsubscribe();
+    }
+  }
+
+  private updateVideoData(video: VideoProps): void {
+    if (this.count > 0) {
+      this.videoSubscription.unsubscribe();
+      return;
+    }
+
+    this.count++;
+
+    this.store.dispatch(
+      updateVideoData({
+        id: video.id,
+        data: { ...video, views: video.views + 1 },
+      })
+    );
   }
 }

@@ -17,6 +17,6 @@ export class VideoService {
   }
 
   updateVideoData(id: string, data: VideoProps) {
-    return this.httpClient.put<void>(`${this.baseUrl}/${id}`, data);
+    return this.httpClient.put<VideoProps>(`${this.baseUrl}/${id}`, data);
   }
 }

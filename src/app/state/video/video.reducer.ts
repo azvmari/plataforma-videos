@@ -4,6 +4,8 @@ import {
   getAllVideosSuccess,
   getVideoById,
   getVideoByIdSuccess,
+  updateVideoData,
+  updateVideoDataSuccess,
 } from './video.actions';
 
 export type VideoState = {
@@ -28,6 +30,12 @@ const _videoReducer = createReducer(
   }),
   on(getVideoByIdSuccess, (state, { video }) => {
     return { ...state, videoSelected: video };
+  }),
+  on(updateVideoData, (state, { id }) => {
+    return { ...state, videoSelected: null };
+  }),
+  on(updateVideoDataSuccess, (state, { data }) => {
+    return { ...state, videoSelected: data };
   })
 );
 

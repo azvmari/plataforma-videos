@@ -3,7 +3,7 @@ import { createAction, props } from '@ngrx/store';
 export const getAllVideos = createAction('[Video] load videos');
 
 export const getAllVideosSuccess = createAction(
-  '[Product] load videos success',
+  '[Video] load videos success',
   props<{ videos: VideoProps[] }>()
 );
 
@@ -13,6 +13,16 @@ export const getVideoById = createAction(
 );
 
 export const getVideoByIdSuccess = createAction(
-  '[Product] load video by id success',
+  '[Video] load video by id success',
   props<{ video: VideoProps }>()
+);
+
+export const updateVideoData = createAction(
+  '[Video]: update video data',
+  props<{ id: string; data: VideoProps }>()
+);
+
+export const updateVideoDataSuccess = createAction(
+  '[Video]: update video data success',
+  props<{ data: VideoProps }>()
 );

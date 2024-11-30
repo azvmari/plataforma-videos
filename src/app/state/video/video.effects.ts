@@ -6,6 +6,8 @@ import {
   getAllVideosSuccess,
   getVideoById,
   getVideoByIdSuccess,
+  updateVideoData,
+  updateVideoDataSuccess,
 } from './video.actions';
 import { VideoService } from '../../service/video.service';
 
@@ -13,7 +15,6 @@ export const getAllVideosEffect = createEffect(
   (actions$ = inject(Actions), videosService = inject(VideoService)) => {
     return actions$.pipe(
       ofType(getAllVideos),
-      tap(() => console.log('passou pelo effect')),
       switchMap(() =>
         videosService
           .getVideos()
@@ -28,11 +29,24 @@ export const getVideoByIdEffect = createEffect(
   (actions$ = inject(Actions), videosService = inject(VideoService)) => {
     return actions$.pipe(
       ofType(getVideoById),
-      tap(() => console.log('passou pelo effect')),
       switchMap(({ id }) =>
         videosService
           .getVideo(id)
           .pipe(map((video) => getVideoByIdSuccess({ video })))
+      )
+    );
+  },
+  { functional: true }
+);
+
+export const updateVideoEffect = createEffect(
+  (actions$ = inject(Actions), videosService = inject(VideoService)) => {
+    return actions$.pipe(
+      ofType(updateVideoData),
+      switchMap(({ id, data }) =>
+        videosService
+          .updateVideoData(id, data)
+          .pipe(map((data) => updateVideoDataSuccess({ data })))
       )
     );
   },
