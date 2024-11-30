@@ -2,7 +2,11 @@ import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getVideoById, updateVideoData } from '../../state/video/video.actions';
+import {
+  getVideoById,
+  getVideoIsFavorited,
+  updateVideoData,
+} from '../../state/video/video.actions';
 import { videoSelectors } from '../../state/video/video.selectors';
 import { AsyncPipe } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -22,6 +26,7 @@ export class VideoComponent {
   description = 'Descrição do vídeo';
   id: string | null = null;
   video = this.store.select(videoSelectors.video);
+  isFavorited = this.store.select(videoSelectors.videoIsFavorited);
   private videoSubscription!: Subscription;
 
   constructor(private route: ActivatedRoute) {}
@@ -36,6 +41,9 @@ export class VideoComponent {
 
     this.videoSubscription = this.video.subscribe((video) => {
       if (video) {
+        this.store.dispatch(
+          getVideoIsFavorited({ userId: 1, videoId: video.id })
+        );
         this.updateVideoData(video);
       }
     });

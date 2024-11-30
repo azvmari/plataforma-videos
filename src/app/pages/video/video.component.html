@@ -15,8 +15,13 @@
 
     <div class="actions-container">
       <button>
+        @if((isFavorited | async)) {
+        <img src="/icon/heart-fully.svg" />
+        <label>Desfavoritar</label>
+        } @else {
         <img src="/icon/heart.svg" />
         <label>Favoritar</label>
+        }
       </button>
       <label class="views-label"
         >{{ (video | async)?.views || 0 }} visualizações</label

@@ -14,9 +14,15 @@ export class FavoriteService {
   constructor(private httpClient: HttpClient) {}
 
   getFavorite(userId: number, videoId: string) {
-    return this.httpClient.get<FavoriteProps>(`${this.baseUrl}`, {
-      params: { userId, videoId },
-    });
+    return this.httpClient
+      .get<FavoriteProps[]>(`${this.baseUrl}`, {
+        params: { userId, videoId },
+      })
+      .pipe(
+        map((data) => {
+          return data.length !== 0;
+        })
+      );
   }
 
   getFavoritesVideos(userId: number) {

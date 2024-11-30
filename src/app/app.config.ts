@@ -9,6 +9,7 @@ import {
   getAllVideosEffect,
   getFavoritesVideosEffect,
   getVideoByIdEffect,
+  getVideoIsFavoritedEffect,
   updateVideoEffect,
 } from './state/video/video.effects';
 import { provideHttpClient } from '@angular/common/http';
@@ -22,6 +23,7 @@ export const appConfig: ApplicationConfig = {
       getAllVideosEffect,
       getVideoByIdEffect,
       getFavoritesVideosEffect,
+      getVideoIsFavoritedEffect,
       updateVideoEffect,
     }),
     provideHttpClient(),

@@ -8,6 +8,8 @@ import {
   getFavoritesVideosSuccess,
   getVideoById,
   getVideoByIdSuccess,
+  getVideoIsFavorited,
+  getVideoIsFavoritedSuccess,
   updateVideoData,
   updateVideoDataSuccess,
 } from './video.actions';
@@ -50,6 +52,22 @@ export const getFavoritesVideosEffect = createEffect(
         favoriteService
           .getFavoritesVideos(userId)
           .pipe(map((videos) => getFavoritesVideosSuccess({ videos })))
+      )
+    );
+  },
+  { functional: true }
+);
+
+export const getVideoIsFavoritedEffect = createEffect(
+  (actions$ = inject(Actions), favoriteService = inject(FavoriteService)) => {
+    return actions$.pipe(
+      ofType(getVideoIsFavorited),
+      switchMap(({ userId, videoId }) =>
+        favoriteService
+          .getFavorite(userId, videoId)
+          .pipe(
+            map((isFavorited) => getVideoIsFavoritedSuccess({ isFavorited }))
+          )
       )
     );
   },

@@ -27,6 +27,16 @@ export const getFavoritesVideosSuccess = createAction(
   props<{ videos: VideoProps[] }>()
 );
 
+export const getVideoIsFavorited = createAction(
+  '[Video] verify video is faviroted',
+  props<{ userId: number; videoId: string }>()
+);
+
+export const getVideoIsFavoritedSuccess = createAction(
+  '[Video] verify video is faviroted success',
+  props<{ isFavorited: boolean }>()
+);
+
 export const updateVideoData = createAction(
   '[Video]: update video data',
   props<{ id: string; data: VideoProps }>()
