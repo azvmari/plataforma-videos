@@ -10,4 +10,11 @@ import { Component, Input } from '@angular/core';
 export class CardVideoComponent {
   @Input() title: String = '';
   @Input() description: String = '';
+  @Input() thumbnailSrc: String = '';
+  @Input() id: String = '';
+  videoUrl: string = '';
+
+  ngOnInit(): void {
+    this.videoUrl = `/video/${this.id}`;
+  }
 }
