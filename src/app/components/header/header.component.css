@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 80px 0 80px;
+}
+
+.img-container {
+  width: 120px;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.buttons-container a {
+  padding: 14px 24px;
+  font-weight: 500;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.buttons-container a.login-button {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+a:hover {
+  opacity: 0.85;
+  filter: brightness(1.1);
+  transition: 250ms opacity;
+}

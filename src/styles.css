@@ -6,3 +6,11 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
+
+body {
+  --primary: #033e8a;
+}
+
+a {
+  text-decoration: none;
+}
