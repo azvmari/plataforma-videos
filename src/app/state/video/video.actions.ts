@@ -17,6 +17,16 @@ export const getVideoByIdSuccess = createAction(
   props<{ video: VideoProps }>()
 );
 
+export const getFavoritesVideos = createAction(
+  '[Video] load user favorite videos',
+  props<{ userId: number }>()
+);
+
+export const getFavoritesVideosSuccess = createAction(
+  '[Video] load user favorite videos success',
+  props<{ videos: VideoProps[] }>()
+);
+
 export const updateVideoData = createAction(
   '[Video]: update video data',
   props<{ id: string; data: VideoProps }>()

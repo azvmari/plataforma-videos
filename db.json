@@ -1,4 +1,17 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "Mariana Azevedo",
+      "email": "marianaoazevedo03@gmail.com"
+    }
+  ],
+  "favorites": [
+    {
+      "userId": 1,
+      "videoId": "ahjkdhaj"
+    }
+  ],
   "videos": [
     {
       "id": "h31h2k3j",

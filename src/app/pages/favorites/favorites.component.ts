@@ -2,7 +2,10 @@ import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Store } from '@ngrx/store';
 import { videoSelectors } from '../../state/video/video.selectors';
-import { getAllVideos } from '../../state/video/video.actions';
+import {
+  getAllVideos,
+  getFavoritesVideos,
+} from '../../state/video/video.actions';
 import { AsyncPipe } from '@angular/common';
 import { CardVideoComponent } from '../../components/card-video/card-video.component';
 import { RouterOutlet } from '@angular/router';
@@ -18,9 +21,9 @@ export class FavoritesComponent {
   title = 'OnPlay | Favoritos';
 
   private store = inject(Store);
-  videos = this.store.select(videoSelectors.videos);
+  videos = this.store.select(videoSelectors.favorites);
 
   ngOnInit(): void {
-    this.store.dispatch(getAllVideos());
+    this.store.dispatch(getFavoritesVideos({ userId: 1 }));
   }
 }

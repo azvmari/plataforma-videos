@@ -7,6 +7,7 @@ import { appReducers } from './state/app.reducers';
 import { provideEffects } from '@ngrx/effects';
 import {
   getAllVideosEffect,
+  getFavoritesVideosEffect,
   getVideoByIdEffect,
   updateVideoEffect,
 } from './state/video/video.effects';
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideEffects({
       getAllVideosEffect,
       getVideoByIdEffect,
+      getFavoritesVideosEffect,
       updateVideoEffect,
     }),
     provideHttpClient(),

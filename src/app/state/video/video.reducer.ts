@@ -2,6 +2,8 @@ import { createReducer, on } from '@ngrx/store';
 import {
   getAllVideos,
   getAllVideosSuccess,
+  getFavoritesVideos,
+  getFavoritesVideosSuccess,
   getVideoById,
   getVideoByIdSuccess,
   updateVideoData,
@@ -10,10 +12,12 @@ import {
 
 export type VideoState = {
   videos: VideoProps[];
+  favorites: VideoProps[];
   videoSelected: VideoProps | null;
 };
 export const initialState: VideoState = {
   videos: [],
+  favorites: [],
   videoSelected: null,
 };
 
@@ -30,6 +34,12 @@ const _videoReducer = createReducer(
   }),
   on(getVideoByIdSuccess, (state, { video }) => {
     return { ...state, videoSelected: video };
+  }),
+  on(getFavoritesVideos, (state, { userId }) => {
+    return { ...state, favorites: [] };
+  }),
+  on(getFavoritesVideosSuccess, (state, { videos }) => {
+    return { ...state, favorites: videos };
   }),
   on(updateVideoData, (state, { id }) => {
     return { ...state, videoSelected: null };

@@ -4,6 +4,8 @@ import { map, switchMap, tap } from 'rxjs';
 import {
   getAllVideos,
   getAllVideosSuccess,
+  getFavoritesVideos,
+  getFavoritesVideosSuccess,
   getVideoById,
   getVideoByIdSuccess,
   updateVideoData,
@@ -33,6 +35,20 @@ export const getVideoByIdEffect = createEffect(
         videosService
           .getVideo(id)
           .pipe(map((video) => getVideoByIdSuccess({ video })))
+      )
+    );
+  },
+  { functional: true }
+);
+
+export const getFavoritesVideosEffect = createEffect(
+  (actions$ = inject(Actions), videosService = inject(VideoService)) => {
+    return actions$.pipe(
+      ofType(getFavoritesVideos),
+      switchMap(({ userId }) =>
+        videosService
+          .getFavoritesVideos(userId)
+          .pipe(map((videos) => getFavoritesVideosSuccess({ videos })))
       )
     );
   },
