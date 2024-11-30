@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<main>
+  <h2>Seus favoritos:</h2>
+
+  <div class="videos-container">
+    @for(video of (videos|async); track video.id){
+    <app-card-video
+      [title]="video.title"
+      [description]="video.description"
+      [thumbnailSrc]="video.thumbnailSrc"
+      [id]="video.id"
+    ></app-card-video>
+    }
+  </div>
+</main>
+
+<router-outlet />
