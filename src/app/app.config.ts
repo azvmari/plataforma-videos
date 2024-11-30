@@ -5,7 +5,10 @@ import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { appReducers } from './state/app.reducers';
 import { provideEffects } from '@ngrx/effects';
-import { getAllVideosEffect } from './state/video/video.effects';
+import {
+  getAllVideosEffect,
+  getVideoByIdEffect,
+} from './state/video/video.effects';
 import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
@@ -13,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore(appReducers),
-    provideEffects({ getAllVideosEffect }),
+    provideEffects({ getAllVideosEffect, getVideoByIdEffect }),
     provideHttpClient(),
   ],
 };

@@ -9,8 +9,8 @@
 
   <div class="details-container">
     <div class="description-container">
-      <h2>{{ title }}</h2>
-      <p>{{ description }}</p>
+      <h2>{{ (video | async)?.title || "" }}</h2>
+      <p>{{ (video | async)?.description || "" }}</p>
     </div>
 
     <div class="actions-container">
@@ -18,7 +18,9 @@
         <img src="/icon/heart.svg" />
         <label>Favoritar</label>
       </button>
-      <label class="views-label">0 visualizações</label>
+      <label class="views-label"
+        >{{ (video | async)?.views || 0 }} visualizações</label
+      >
     </div>
   </div>
 </main>

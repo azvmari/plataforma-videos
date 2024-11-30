@@ -12,7 +12,7 @@ export class VideoService {
     return this.httpClient.get<VideoProps[]>(this.baseUrl);
   }
 
-  getVideo(id: number) {
+  getVideo(id: string) {
     return this.httpClient.get<VideoProps>(`${this.baseUrl}/${id}`);
   }
 }
