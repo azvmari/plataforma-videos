@@ -4,26 +4,12 @@
   <h2>Vídeo recomendados para você:</h2>
 
   <div class="videos-container">
+    @for(video of (videos|async); track video.id){
     <app-card-video
-      [title]="'Vídeo 1'"
-      [description]="'Descrição do vídeo'"
+      [title]="video.title"
+      [description]="video.description"
     ></app-card-video>
-    <app-card-video
-      [title]="'Vídeo 1'"
-      [description]="'Descrição do vídeo'"
-    ></app-card-video>
-    <app-card-video
-      [title]="'Vídeo 1'"
-      [description]="'Descrição do vídeo'"
-    ></app-card-video>
-    <app-card-video
-      [title]="'Vídeo 1'"
-      [description]="'Descrição do vídeo'"
-    ></app-card-video>
-    <app-card-video
-      [title]="'Vídeo 1'"
-      [description]="'Descrição do vídeo'"
-    ></app-card-video>
+    }
   </div>
 </main>
 

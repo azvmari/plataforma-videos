@@ -1,6 +1,6 @@
-import { VideoState } from './video.reducer';
+import { StateProps } from '../../@types/state';
 
-const getAllVideosSelector = (appState: VideoState) => appState.videos;
+const getAllVideosSelector = (appState: StateProps) => appState.videos.videos;
 
 export const videoSelectors = {
   videos: getAllVideosSelector,

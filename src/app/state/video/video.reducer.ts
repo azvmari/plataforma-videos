@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { getAllVideos } from './video.actions';
+import { getAllVideos, getAllVideosSuccess } from './video.actions';
 
 export type VideoState = {
   videos: VideoProps[];
@@ -11,10 +11,12 @@ export const initialState: VideoState = {
 const _videoReducer = createReducer(
   initialState,
   on(getAllVideos, (state) => {
-    console.log('get products:', state);
     return { ...state };
+  }),
+  on(getAllVideosSuccess, (state, { videos }) => {
+    return { ...state, videos };
   })
 );
 
-export const videoReducer = (state: VideoState, action: any) =>
+export const videoReducer = (state: any, action: any) =>
   _videoReducer(state, action);
