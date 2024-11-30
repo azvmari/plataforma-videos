@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap, tap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 import {
   getAllVideos,
   getAllVideosSuccess,
@@ -12,6 +12,7 @@ import {
   updateVideoDataSuccess,
 } from './video.actions';
 import { VideoService } from '../../service/video.service';
+import { FavoriteService } from '../../service/favorite.service';
 
 export const getAllVideosEffect = createEffect(
   (actions$ = inject(Actions), videosService = inject(VideoService)) => {
@@ -42,11 +43,11 @@ export const getVideoByIdEffect = createEffect(
 );
 
 export const getFavoritesVideosEffect = createEffect(
-  (actions$ = inject(Actions), videosService = inject(VideoService)) => {
+  (actions$ = inject(Actions), favoriteService = inject(FavoriteService)) => {
     return actions$.pipe(
       ofType(getFavoritesVideos),
       switchMap(({ userId }) =>
-        videosService
+        favoriteService
           .getFavoritesVideos(userId)
           .pipe(map((videos) => getFavoritesVideosSuccess({ videos })))
       )
