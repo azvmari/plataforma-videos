@@ -8,6 +8,7 @@ import { CardVideoComponent } from '../../components/card-video/card-video.compo
   imports: [RouterOutlet, HeaderComponent, CardVideoComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  standalone: true,
 })
 export class HomeComponent {
   title = 'OnPlay';

@@ -7,6 +7,7 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
   imports: [HeaderComponent, RouterOutlet],
   templateUrl: './video.component.html',
   styleUrl: './video.component.css',
+  standalone: true,
 })
 export class VideoComponent {
   title = 'Título do vídeo';
