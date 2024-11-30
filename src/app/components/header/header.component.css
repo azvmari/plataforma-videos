@@ -1,7 +1,7 @@
 :host {
   display: flex;
   justify-content: space-between;
-  padding: 60px 80px 0 80px;
+  padding: 20px 80px 0 80px;
   align-items: center;
 }
 
@@ -16,7 +16,7 @@
 .buttons-container {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 20px;
 }
 
 .buttons-container a {
