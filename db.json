@@ -1,0 +1,20 @@
+{
+  "videos": [
+    {
+      "id": "h31h2k3j",
+      "title": "Vídeo 1",
+      "thumbnailSrc": "https://i.ytimg.com/vi/Nii_fBGb0_c/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDU-hiECHiIdVG13fPWK_n01KLbSg",
+      "description": "Lorem ipsum",
+      "uploadAt": "2024-11-29 08:24",
+      "views": 0
+    },
+    {
+      "id": "ahjkdhaj",
+      "title": "Vídeo 2",
+      "thumbnailSrc": "https://marketplace.canva.com/EAEqfS4X0Xw/1/0/1600w/canva-most-attractive-youtube-thumbnail-wK95f3XNRaM.jpg",
+      "description": "Lorem ipsum",
+      "uploadAt": "2024-11-27 10:44",
+      "views": 0
+    }
+  ]
+}
