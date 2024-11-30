@@ -19,11 +19,24 @@
 }
 
 .buttons-container a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   padding: 14px 24px;
   font-weight: 500;
   border-radius: 8px;
+  border: 1px solid var(--primary);
+
+  color: var(--primary);
+
+  font-size: 20px;
 
   cursor: pointer;
+}
+
+.buttons-container a img {
+  width: 20px;
 }
 
 .buttons-container a.login-button {
