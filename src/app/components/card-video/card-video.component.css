@@ -1,5 +1,19 @@
 :host {
+  border-radius: 8px;
+  padding: 8px;
+  transition: 150ms;
+}
+
+:host:hover {
+  background-color: var(--primary);
+  color: #fff;
+  filter: brightness(1.2);
+}
+
+a {
   width: 100%;
+
+  color: inherit;
 
   display: flex;
   flex-direction: column;
