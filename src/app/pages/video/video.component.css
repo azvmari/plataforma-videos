@@ -1,0 +1,98 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 20px 81px 10px 81px;
+}
+
+.video-container {
+  width: 100%;
+  flex: 1;
+  border-radius: 8px;
+  background-color: #eee;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-container .thumbnail {
+  width: 100%;
+  height: max-content;
+}
+
+.video-container .play-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-45px);
+  width: 90px;
+  opacity: 0.9;
+  border-radius: 50%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container .play-button:hover {
+  background-color: #ffffffa0;
+}
+
+.video-container .play-button img {
+  width: 100%;
+}
+
+.details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.actions-container {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+}
+
+.actions-container button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  height: 24px;
+  font-size: 20px;
+  color: #828282;
+
+  background-color: transparent;
+}
+
+.actions-container button:hover {
+  color: var(--primary);
+}
+
+.actions-container button img {
+  height: 100%;
+}
+
+.actions-container .views-label {
+  color: #828282;
+  font-size: 20px;
+}

@@ -16,3 +16,9 @@ body {
 a {
   text-decoration: none;
 }
+
+button,
+button * {
+  cursor: pointer;
+  background-color: transparent;
+}

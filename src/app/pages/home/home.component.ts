@@ -4,7 +4,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { CardVideoComponent } from '../../components/card-video/card-video.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   imports: [RouterOutlet, HeaderComponent, CardVideoComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
